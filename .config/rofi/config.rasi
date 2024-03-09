@@ -1,7 +1,0 @@
-configuration {
-    modi:           "window,run,drun,combi,ssh";
-    font:           "JetBrainsMono Nerd Font 12";
-    show-icons:     true;
-    theme:          "glue_pro_blue";
-    show-icons:     true;
-}
