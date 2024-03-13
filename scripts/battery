@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Loop through all attached batteries and format the info
+for battery in /sys/class/power_supply/BAT?*
+do
+	# Sets up the status and capacity
+	status=$(cat "$battery/status")
+	case "$status" in
+		"Full") status="  " ;;
+		"Discharging") status="  " ;;
+		"Charging") status=" " ;;
+		"Not charging") status=" " ;;
+		"Unknown") status="? " ;;
+	esac
+	capacity=$(cat "$battery/capacity")
+	# Will make a warn variable if discharging and low
+	[ "$status" = " " ] && [ "$capacity" -le 20 ] && warn='❗'
+	# Prints the info
+	printf "%s%s%d%%\n" "$warn" "$status" "$capacity"; unset warn
+done && return 0

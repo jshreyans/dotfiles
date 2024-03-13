@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    1) setsid pavucontrol ;;
+    3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
+- Middle click to mute.
+- Scroll to change." ;;
+    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+if amixer get Master | grep -q '\[off\]'; then
+    echo "🔇 ~%"
+    exit
+fi
+
+vol="$(amixer get Master | awk -F'[][]' '/Left:/{print $2}' | sed 's/%//')"
+if [ "$vol" -gt "60" ]; then
+    icon=" "
+else
+    icon=" "
+fi
+
+echo " $vol%"
+

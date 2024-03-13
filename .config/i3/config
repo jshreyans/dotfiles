@@ -25,7 +25,7 @@ gaps outer 3
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-exec --no-startup-id sleep 1 && feh --bg-fill $HOME/Pictures/wallpapers/arch_nz.png
+exec --no-startup-id sleep 1 && feh --bg-fill $HOME/Pictures/wallpapers/neon.png
 
 # make caps lock behave as ctrl
 exec --no-startup-id setxkbmap -option ctrl:nocaps
