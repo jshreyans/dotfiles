@@ -1,6 +1,11 @@
 syntax on
+
+set nocompatible
 set encoding=UTF-8
 set noswapfile
+
+filetype plugin on
+filetype indent on
 
 set nu
 set rnu
@@ -62,4 +67,5 @@ endif
 
 call plug#begin()
     Plug 'preservim/nerdtree'
+    Plug 'vimwiki/vimwiki'
 call plug#end()
