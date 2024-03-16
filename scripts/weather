@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send -u low -i none "Weather Report" "$(curl -Ss https://wttr.in/Hyderabad?format="%l\n%C+%t+(%f)\nH:++%h\nW:+%w\n")"
